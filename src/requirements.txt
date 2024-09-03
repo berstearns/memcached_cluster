@@ -1,0 +1,7 @@
+pymemcache
+flask
+Flask_WTF
+bootstrap-flask
+Flask-Session
+Flask-Login
+wtforms
