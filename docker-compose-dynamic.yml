@@ -1,0 +1,176 @@
+version: '3'
+
+services:
+  memcached1:
+    image: memcached:latest
+    container_name: memcached1
+    ports:
+      - "11211:11211"
+  memcached2:
+    image: memcached:latest
+    container_name: memcached2
+    ports:
+      - "11212:11211"
+  memcached3:
+    image: memcached:latest
+    container_name: memcached3
+    ports:
+      - "11213:11211"
+  memcached4:
+    image: memcached:latest
+    container_name: memcached4
+    ports:
+      - "11214:11211"
+  memcached5:
+    image: memcached:latest
+    container_name: memcached5
+    ports:
+      - "11215:11211"
+  python-client1:
+    build: ./src
+    container_name: python-client1
+    depends_on:
+      - memcached1
+      - memcached2
+      - memcached3
+      - memcached4
+      - memcached5
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MEMCACHED_SERVERS=memcached1:11211,memcached2:11211,memcached3:11211,memcached4:11211,memcached5:11211
+    tty: true
+  python-client2:
+    build: ./src
+    container_name: python-client2
+    depends_on:
+      - memcached1
+      - memcached2
+      - memcached3
+      - memcached4
+      - memcached5
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MEMCACHED_SERVERS=memcached1:11211,memcached2:11211,memcached3:11211,memcached4:11211,memcached5:11211
+    tty: true
+  python-client3:
+    build: ./src
+    container_name: python-client3
+    depends_on:
+      - memcached1
+      - memcached2
+      - memcached3
+      - memcached4
+      - memcached5
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MEMCACHED_SERVERS=memcached1:11211,memcached2:11211,memcached3:11211,memcached4:11211,memcached5:11211
+    tty: true
+  python-client4:
+    build: ./src
+    container_name: python-client4
+    depends_on:
+      - memcached1
+      - memcached2
+      - memcached3
+      - memcached4
+      - memcached5
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MEMCACHED_SERVERS=memcached1:11211,memcached2:11211,memcached3:11211,memcached4:11211,memcached5:11211
+    tty: true
+  python-client5:
+    build: ./src
+    container_name: python-client5
+    depends_on:
+      - memcached1
+      - memcached2
+      - memcached3
+      - memcached4
+      - memcached5
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MEMCACHED_SERVERS=memcached1:11211,memcached2:11211,memcached3:11211,memcached4:11211,memcached5:11211
+    tty: true
+  python-client6:
+    build: ./src
+    container_name: python-client6
+    depends_on:
+      - memcached1
+      - memcached2
+      - memcached3
+      - memcached4
+      - memcached5
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MEMCACHED_SERVERS=memcached1:11211,memcached2:11211,memcached3:11211,memcached4:11211,memcached5:11211
+    tty: true
+  python-client7:
+    build: ./src
+    container_name: python-client7
+    depends_on:
+      - memcached1
+      - memcached2
+      - memcached3
+      - memcached4
+      - memcached5
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MEMCACHED_SERVERS=memcached1:11211,memcached2:11211,memcached3:11211,memcached4:11211,memcached5:11211
+    tty: true
+  python-client8:
+    build: ./src
+    container_name: python-client8
+    depends_on:
+      - memcached1
+      - memcached2
+      - memcached3
+      - memcached4
+      - memcached5
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MEMCACHED_SERVERS=memcached1:11211,memcached2:11211,memcached3:11211,memcached4:11211,memcached5:11211
+    tty: true
+  python-client9:
+    build: ./src
+    container_name: python-client9
+    depends_on:
+      - memcached1
+      - memcached2
+      - memcached3
+      - memcached4
+      - memcached5
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MEMCACHED_SERVERS=memcached1:11211,memcached2:11211,memcached3:11211,memcached4:11211,memcached5:11211
+    tty: true
+  python-client10:
+    build: ./src
+    container_name: python-client10
+    depends_on:
+      - memcached1
+      - memcached2
+      - memcached3
+      - memcached4
+      - memcached5
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MEMCACHED_SERVERS=memcached1:11211,memcached2:11211,memcached3:11211,memcached4:11211,memcached5:11211
+    tty: true
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - python-client1
+      - python-client2
+      - python-client3
+      - python-client4
+      - python-client5
+      - python-client6
+      - python-client7
+      - python-client8
+      - python-client9
+      - python-client10
+    volumes:
+      - ./nginx-dynamic.conf:/etc/nginx/nginx.conf:ro
