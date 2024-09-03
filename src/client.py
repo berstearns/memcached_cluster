@@ -72,7 +72,8 @@ Session(app)
 '''
 @app.route("/login",methods=["GET"])
 def index():
-    if session.get("user", False):
+    print(session)
+    if session.get("_user_id", False):
         return redirect("/homepage")
     else:
         formTemplate=LoginForm()

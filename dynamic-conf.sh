@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-NUM_MEMCACHED=5  # Number of Memcached instances
-NUM_FLASK=10      # Number of Flask app instances
+NUM_MEMCACHED=1  # Number of Memcached instances
+NUM_FLASK=2     # Number of Flask app instances
 NGINX_CONF="./nginx-dynamic.conf"
 DOCKER_COMPOSE="./docker-compose-dynamic.yml"
 
