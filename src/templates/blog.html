@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		  <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		      <script src="https://cdn.tailwindcss.com"></script>
+		        <title>Marked in the browser</title>
+	</head>
+	<body>
+	          <h1> render time : 2024-09-29-16-24-37</h1>
+		  <h1 class="text-3xl font-bold underline">
+			      Hello world!
+			        </h1>
+				  <div id="content"></div>
+				    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+				      <div class="container mx-auto px-4 py-8">
+					              <h1 class="text-3xl font-bold mb-6">Blog Posts</h1>
+						              <div id="posts" class="space-y-6"></div>
+							        </div>
+								  <script>
+									        const posts = [
+											    {
+												            title: "Post One",
+												            content: "This is the content for the first post.",
+												            date: "2024-09-01",
+												            raw_md: "# Marked in the browser\n\nRendered by **marked**.",
+												        },
+											    {
+												            title: "Post Two",
+												            content: "This is the content for the second post.",
+												            date: "2024-09-15",
+												            raw_md: "# 2 Marked in the browser\n\nRendered by **marked**.",
+												        },
+											    {
+												            title: "Post Three",
+												            content: "This is the content for the third post.",
+												            date: "2024-09-20",
+												            raw_md: "# 1 Marked in the browser\n\nRendered by **marked**.",
+												        },
+											    ];
+
+										    const postsContainer = document.getElementById('posts');
+
+										    posts.forEach(post => {
+											            const postElement = document.createElement('div');
+											            postElement.className = "bg-white shadow-md rounded-lg p-6";
+											            parsedContent = marked.parse(post.raw_md);
+											            postElement.innerHTML = `
+												                <h2 class="text-xl font-semibold mb-2">${post.title}</h2>
+														            <p class="text-gray-500 mb-4">${post.date}</p>
+															                <p>${parsedContent}</p>
+																	        `;
+
+											        postsContainer.appendChild(postElement);
+										    });
+
+
+										  </script>
+										    <script>
+											        document.getElementById('content').innerHTML =
+													      marked.parse('# Marked in the browser\n\nRendered by **marked**.');
+												  </script>
+</html>
+
+	</body>
+	</html>
