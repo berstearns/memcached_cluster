@@ -27,4 +27,3 @@ EXPOSE 80 443
 
 # Start Nginx and run the Certbot command
 ENTRYPOINT ["/entrypoint.sh"]
-

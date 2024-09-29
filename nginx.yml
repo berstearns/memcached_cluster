@@ -8,7 +8,8 @@ services:
     container_name: nginx
     ports:
       - "80:80"
+      - "443:443"
     volumes:
-      - ./nginx-testing-static.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx-testing-static-https.conf:/etc/nginx/nginx.conf:ro
       - ./src/templates/driver.html:/usr/share/nginx/html/driver.html
       - ./src/templates/blog.html:/usr/share/nginx/html/blog.html
