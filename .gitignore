@@ -1,3 +1,4 @@
 personal-notes/
 .vim
 .env
+venv/
