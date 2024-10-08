@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source .env
-while 1;do
+while true;do
     echo 'sleeping for 30 seconds'
     sleep 30
     echo 'rendering'
