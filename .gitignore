@@ -2,3 +2,4 @@ personal-notes/
 .vim
 .env
 venv/
+nohup.out

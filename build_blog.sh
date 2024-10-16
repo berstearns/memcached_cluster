@@ -10,6 +10,5 @@ while true;do
     python3 -m venv venv
     ./venv/bin/python -m pip install -r ./personal-notes/blog/requirements.txt
     ./venv/bin/python personal-notes/blog/render.py ./src/templates/blog.html
-    # clear
-    exit
+    clear
 done
