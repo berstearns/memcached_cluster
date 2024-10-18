@@ -22,3 +22,9 @@ To stop the containers, run:
 ```
 docker-compose down
 ```
+
+
+## Blog Setup
+1. you need a venv/
+2. a .env
+3. specify a valid OUTPUT_DIR
