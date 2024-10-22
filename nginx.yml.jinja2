@@ -10,6 +10,6 @@ services:
       - "80:80"
     volumes:
       - ./nginx-testing-static.conf:/etc/nginx/nginx.conf:ro
-      - ./src/templates/driver.html:/usr/share/nginx/html/driver.html
-      - ./src/templates/blog.html:/usr/share/nginx/html/blog.html
-      - ./src/templates/post-1.html:/usr/share/nginx/html/post-1.html
+      {% for post in posts %}
+      - ./src/templates/{post['filename']}.html:/usr/share/nginx/html/{post['filename']}
+      {% endfor %}
